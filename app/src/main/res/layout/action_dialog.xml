@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#77AAAAAA"
+    android:orientation="vertical"
+    android:paddingLeft="27dp"
+    android:paddingRight="27dp"
+    android:paddingTop="17dp"
+    android:paddingBottom="17dp">
+
+    <TextView
+        android:id="@+id/txt_dialog_copy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="copy file"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/dialog_text_size" />
+
+    <TextView
+        android:id="@+id/txt_dialog_move"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="move file"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/dialog_text_size" />
+
+    <TextView
+        android:id="@+id/txt_dialog_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="delete file"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/dialog_text_size" />
+
+</LinearLayout>
