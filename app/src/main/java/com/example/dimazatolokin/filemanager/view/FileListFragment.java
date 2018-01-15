@@ -69,5 +69,4 @@ public class FileListFragment extends Fragment {
             adapter.setItems(items);
         }
     }
-
 }

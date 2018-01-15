@@ -76,11 +76,16 @@ public class CoreService {
                             return;
                         }
                         Utils.copyFileOrDir(fileItem.getPath(), currentDirRight.getAbsolutePath());
+                        List<FileItem> fileItems = fileItemsFromDir(currentDirRight);
+                        if (viewManager != null) {
+                            viewManager.setFileListRight(fileItems);
+                        }
                     }
 
                     @Override
                     public void moveFile() {
                         Utils.moveFileOrDir(fileItem.getPath(), currentDirRight.getAbsolutePath());
+                        refreshScreens();
                     }
                 });
             }
@@ -122,16 +127,30 @@ public class CoreService {
                             return;
                         }
                         Utils.copyFileOrDir(fileItem.getPath(), currentDirLeft.getAbsolutePath());
+                        List<FileItem> fileItems = fileItemsFromDir(currentDirLeft);
+                        if (viewManager != null) {
+                            viewManager.setFileListLeft(fileItems);
+                        }
                     }
 
                     @Override
                     public void moveFile() {
                         Utils.moveFileOrDir(fileItem.getPath(), currentDirLeft.getAbsolutePath());
+                        refreshScreens();
                     }
                 });
             }
         };
 
+    }
+
+    private void refreshScreens() {
+        List<FileItem> fileItems = fileItemsFromDir(currentDirRight);
+        List<FileItem> fileItems2 = fileItemsFromDir(currentDirLeft);
+        if (viewManager != null) {
+            viewManager.setFileListRight(fileItems);
+            viewManager.setFileListLeft(fileItems2);
+        }
     }
 
     private void openFile(File file) {
@@ -221,6 +240,7 @@ public class CoreService {
         void deleteFile() {
             File file = new File(fileItem.getPath());
             Utils.deleteRecursive(file);
+            refreshScreens();
         }
     }
 }

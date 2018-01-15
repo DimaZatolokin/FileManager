@@ -14,4 +14,6 @@ public interface ViewManager {
     void showDialog(float posY, OnActionSelectedCallback callback);
 
     void showMessage(String message);
+
+    void refreshFragments();
 }
